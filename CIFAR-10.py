@@ -14,7 +14,7 @@ def load_dataset():
   for i in range(9):
     plot_img.subplot(331 + i)
     plot_img.imshow(train_images[i] ,cmap=plt.cm.binary)
-    plot_img.xlabel(class_names[train_labels[IMG_INDEX][0]])
+    plot_img.xlabel(class_names[train_labels[i][0]])
   plot_img.show()
   return train_images, train_labels, test_images, test_labels
 
