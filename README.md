@@ -63,4 +63,4 @@ The training scripts MUST to be available on all the three nodes to run the trai
 >> python worker.py
 
 on each node, ammending the task index as described above
-
+ # Note worker.py and cifar-10.py must be in the same directory
