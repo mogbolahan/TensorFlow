@@ -21,8 +21,8 @@ Add callbacks for monitoring progress
 # 5. Evaluate the model
 # 6. # Present Result
 
-# IMPORTANT INtermediate step
-Accelerate the training speed with multiple CPU. I utilized multi-node istributed strategy in the training by leveraging Tensorflow's tf.distribute.experimental.MultiWorkerMirroredStrategy() function which requires that the multi-node a TF_CONFIG environment variable to be set set for each node.
+# IMPORTANT Intermediate step
+Accelerate the training speed with multiple CPU. I utilized multi-node istributed strategy in the training by leveraging Tensorflow's tf.distribute.experimental.MultiWorkerMirroredStrategy() function which requires that the multi-node a TF_CONFIG environment variable to be set for each node.
 The training was distributed to the three workers by enclosing the:
 model building and model.compile() call within strategy.scope() which then dictates how and where the variables thereoff are created, 
 
@@ -56,7 +56,7 @@ tf_config = {
 
 
 How to run the training
-The training scripts MUST to be available on all the three nodes to run the training in a distributed fashion. As such o make it clean, let’s have two scripts, one for each node. As such, the output of the three nodes become synchronized courtesy of the  MultiWorkerMirroredStrategy.
+The training scripts MUST to be available on all the three nodes to run the training in a distributed fashion. As such, the output of the three nodes become synchronized courtesy of the  MultiWorkerMirroredStrategy.
 # I embeded the configuration stript in worker.py
 # So, 'task' section of the tf_config in this script (i.e. worker.py) will have to be ammended acordingly (index 0 for worker_1, 2 for worker_2 and 2 for worker_3) and ran on the three nodes
 <br>
