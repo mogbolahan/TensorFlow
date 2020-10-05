@@ -29,10 +29,8 @@ batch_size = batch_size_per_worker * numb_of_workers
 train_dataset, tst_imgs, tst_lbs = cifar_10.load_and_preprocess_dataset(batch_size)
 
 with strategy.scope():
-  # Model building/compiling need to be within `strategy.scope()`.
+  # Keep the building and compiling code snippet within strategy.scope() to leveage the tf.distribute functionality of TensorFlow 2.x.
   model = cifar_10.build_and_compile_model()
-
-  
   # display the model summary
   model.summary()
 
