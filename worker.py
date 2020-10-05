@@ -8,14 +8,15 @@ import datetime
 
 batch_size_per_worker = 128
 
+# Very important!!! change the 'index' value for each worker. ie 0 for worker_1, index: 1 for worker 2 and index: 2 for worker 3.
 tf_config = {
     'cluster': {
         'worker': ['localhost:8080', 'localhost:8081', 'localhost:8082']
     },
-    'task': {'type': 'worker', 'index': 1}
+    'task': {'type': 'worker', 'index': 0}
 }
 
-
+# Very important!!! Uncomment this line to set the TF_CONFIG for each worker
 # os.environ["TF_CONFIG"] = json.dumps(tf_config)
 
 
