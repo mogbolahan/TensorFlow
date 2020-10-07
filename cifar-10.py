@@ -1,6 +1,6 @@
 import os
 import tensorflow as tf
-import matplotlib.pyplot as plot_img
+# import matplotlib.pyplot as plot_img
 import numpy as np
 
 
@@ -18,13 +18,13 @@ def load_and_preprocess_dataset(batch_size):
       (trn_imgs, y_train)).shuffle(60000).repeat().batch(batch_size)
 
   
-  # Just for Fun. Plot the first 100 images.
-  plot_img.figure(figsize=(20,20))
-  for i in range(100):
-    plot_img.subplot(10, 10, 1 + i)
-    plot_img.imshow(trn_imgs[i] ,cmap=plot_img.cm.binary)
-    plot_img.xlabel(class_names[y_train[i][0]])
-  plot_img.show()
+  # # Just for Fun. Plot the first 100 images.
+  # plot_img.figure(figsize=(20,20))
+  # for i in range(100):
+  #   plot_img.subplot(10, 10, 1 + i)
+  #   plot_img.imshow(trn_imgs[i] )
+  #   plot_img.xlabel(class_names[y_train[i][0]])
+  # plot_img.show()
   return train_dataset, tst_imgs, tst_lbs
 
 def build_and_compile_model():
