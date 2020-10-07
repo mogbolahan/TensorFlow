@@ -57,13 +57,19 @@ tf_config = {
 
 How to run the training
 The training scripts MUST to be available on all the three nodes to run the training in a distributed fashion. As such, the output of the three nodes become synchronized courtesy of the  MultiWorkerMirroredStrategy.
+# I wrote a driver script (driver.py to coordinate the workload). Hence start the trainning by issuing the command:
+<br>
+>>python driver.py
+
 # I embeded the configuration stript in worker.py
 # So, 'task' section of the tf_config in this script (i.e. worker.py) will have to be ammended acordingly (index 0 for worker_1, 2 for worker_2 and 2 for worker_3) and ran on the three nodes
 <br>
->> python worker.py
+>> python driver.py
 
-on each node, ammending the task index as described above
- # Note worker.py and cifar-10.py must be in the same directory
+on each node, ammend the task index as described above
+ # Note worker.py, driver.py and cifar-10.py must be in the same directory
  
  
  The non-distributed version of this implementation in a notebook environment is located here: https://colab.research.google.com/drive/1VOvmg7UkJxD6Z6BizEXXXzbTp1WPrRRe?usp=sharing
+ 
+
